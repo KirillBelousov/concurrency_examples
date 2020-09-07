@@ -30,7 +30,7 @@ public class Main {
         try {
             es.execute(new MyTask());
         } catch (Exception x) {
-            System.out.println("Exception: " + x);
+            System.out.println("Exception: " + x); // We will never be here as the excetion occurs in another thread
         }
 
         es.shutdown();
