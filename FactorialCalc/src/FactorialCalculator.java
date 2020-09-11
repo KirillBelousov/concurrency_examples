@@ -10,7 +10,6 @@ public class FactorialCalculator {
         } else {
             System.out.println("Return new value");
             oldArg = val;
-            Thread.sleep(5000);
             try {
                 oldResult = doCalc(val);
             } catch (InterruptedException e) {
@@ -21,6 +20,7 @@ public class FactorialCalculator {
     }
 
     private long doCalc(int val) throws InterruptedException {
+        Thread.sleep(5000);
         if(val == 0) return 1;
         long res = 1;
         for(int i=1; i<=val; ++i) {
