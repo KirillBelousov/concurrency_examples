@@ -3,7 +3,7 @@ import java.util.stream.IntStream;
 public class PrimeCounterStreams implements PrimeCounter {
 
     public int countPrimes(int start, int end) throws InterruptedException {
-        return (int)IntStream.rangeClosed(start, end).filter(x -> isPrime(x)).count();
+        return (int)IntStream.rangeClosed(start, end).parallel().filter(x -> isPrime(x)).count();
     }
 
     private boolean isPrime(int val) {
