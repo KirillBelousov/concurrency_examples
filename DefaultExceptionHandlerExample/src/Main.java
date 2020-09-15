@@ -1,5 +1,6 @@
 import java.util.concurrent.*;
 
+// Demonstrates setting custom default exception handler for all threads
 public class Main {
 
     static class MyTask implements Runnable {

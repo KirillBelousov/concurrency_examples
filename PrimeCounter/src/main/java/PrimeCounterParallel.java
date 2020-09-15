@@ -7,7 +7,7 @@ public class PrimeCounterParallel implements PrimeCounter {
 
     ExecutorService es = Executors.newFixedThreadPool(2);
 
-    private volatile int count;
+    private int count;
 
     private class CountingTask implements Runnable {
 

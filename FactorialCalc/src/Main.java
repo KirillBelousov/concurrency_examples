@@ -5,7 +5,10 @@ public class Main {
 
         System.out.println("Factorial sample");
 
-        FactorialCalculator factorialCalculator = new FactorialCalculator();
+        FactorialCalculator factorialCalculator = new FactorialCalculatorBroken();
+        //FactorialCalculator factorialCalculator = new FactorialCalculatorSynchronized();
+        //FactorialCalculator factorialCalculator = new FactorialCalculatorBetterSynchronized();
+        //FactorialCalculator factorialCalculator = new FactorialCalculatorImmutableState();
 
         ExecutorService es = Executors.newFixedThreadPool(2);
 

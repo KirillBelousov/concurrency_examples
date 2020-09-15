@@ -3,6 +3,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+// Calling Future.cancel() to interrupt a task
 public class Main {
 
     static class MyRunnable implements Runnable {

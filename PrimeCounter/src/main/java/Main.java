@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Counting prime numbers: serially and in parallel
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 

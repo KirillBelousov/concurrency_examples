@@ -1,6 +1,6 @@
 import java.util.concurrent.*;
 
-
+// Terminating a running task with Future.cancel()
 public class Main {
 
     static class MyRunnable implements Runnable {
