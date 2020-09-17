@@ -1,9 +1,16 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * A simple example of a deadlock
  */
 public class Deadlock {
+
+    private static ExecutorService es = Executors.newFixedThreadPool(2);
+
     static class Programmer {
         private final String name;
+
 
         public Programmer(String name) {
             this.name = name;
@@ -26,18 +33,14 @@ public class Deadlock {
 
     public static void main(String[] args) throws InterruptedException {
 
-
         Programmer jack =  new Programmer("Vanya");
         Programmer jill = new Programmer("Sanya");
 
-        Thread t1 = new Thread(() -> jack.reviewCode(jill));
+        es.submit(() -> jack.reviewCode(jill));
 
-        Thread t2 = new Thread(() -> jill.reviewCode(jack));
+        es.submit(() -> jill.reviewCode(jack));
 
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
+        es.shutdown();
 
         System.out.println("Project completed!");
     }
