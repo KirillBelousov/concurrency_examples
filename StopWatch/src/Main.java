@@ -7,8 +7,8 @@
  */
 public class Main {
 
-    private static StopWatch stopwatch = new BrokenStopWatch();
-    //private static StopWatch stopwatch = new GoodStopwatch();
+//    private static StopWatch stopwatch = new BrokenStopWatch();
+      private static StopWatch stopwatch = new GoodStopWatch();
 
     public static void main(String[] args) throws InterruptedException {
         Runnable r = () -> {
