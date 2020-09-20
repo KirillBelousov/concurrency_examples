@@ -30,6 +30,10 @@ class AsyncEngine implements Runnable {
         callback.onSuccess();
     }
 
+    public void stop() {
+        es.shutdown();
+    }
+
     public interface Callback {
         void onSuccess();
     }
@@ -50,5 +54,6 @@ public class Main {
         engine.start();
         boolean res = latch.await(10000, TimeUnit.MILLISECONDS);
         System.out.println("Test " + (res ? "Passed" : "Failed"));
+        engine.stop();
     }
 }
