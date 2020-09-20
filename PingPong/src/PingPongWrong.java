@@ -21,12 +21,14 @@ public class PingPongWrong {
     public static void main(String... arg) {
         final PingPongWrong pingpong = new PingPongWrong();
         es.submit(() -> {
-            while (pingpong.counter < pingpong.MAX)
+            while (pingpong.counter < pingpong.MAX) {
                 pingpong.ping();
+            }
         });
         es.submit(() -> {
-            while (pingpong.counter < pingpong.MAX)
+            while (pingpong.counter < pingpong.MAX) {
                 pingpong.pong();
+            }
         });
 
         es.shutdown();

@@ -1,18 +1,10 @@
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-/**
- * A simple example of a deadlock
- */
 public class Deadlock {
 
-    private static ExecutorService es = Executors.newFixedThreadPool(2);
+    static class Friend {
 
-    static class Programmer {
         private final String name;
 
-
-        public Programmer(String name) {
+        public Friend(String name) {
             this.name = name;
         }
 
@@ -20,28 +12,23 @@ public class Deadlock {
             return this.name;
         }
 
-        public synchronized void reviewCode(Programmer programmer) {
-            System.out.format("%s: reviewing %s's code !%n",
-                    this.name, programmer.getName());
-            programmer.submitCode(this);
+        public synchronized void bow(Friend bower) {
+            System.out.format("%s: %s" + "  has bowed to me!%n", this.name, bower.getName());
+            bower.bowBack(this);
         }
 
-        public synchronized void submitCode(Programmer programmer) {
-            System.out.format("%s: submitting my code to %s for a review!%n", this.name, programmer.getName());
+        public synchronized void bowBack(Friend bower) {
+            System.out.format("%s: %s" + " has bowed back to me!%n", this.name, bower.getName());
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
-        Programmer jack =  new Programmer("Vanya");
-        Programmer jill = new Programmer("Sanya");
+        final Friend alphonse = new Friend("Alphonse");
+        final Friend gaston = new Friend("Gaston");
 
-        es.submit(() -> jack.reviewCode(jill));
+        new Thread(() -> alphonse.bow(gaston)).start();
 
-        es.submit(() -> jill.reviewCode(jack));
-
-        es.shutdown();
-
-        System.out.println("Project completed!");
+        new Thread(() -> gaston.bow(alphonse)).start();
     }
 }
