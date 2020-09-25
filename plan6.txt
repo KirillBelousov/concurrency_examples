@@ -1,0 +1,36 @@
+1. Recollection: semaphore, exchanger, happens-before (ith wiiki definiion), transitivity, happens-before in apidocs of countdownlatch etc
+
+2. Singletons
+https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
+		simple syncronized method
+		eager
+		static holder
+		double check locking
+		why need volatile in dcl  https://www.javamex.com/tutorials/double_checked_locking_fixing.shtml https://www.javamex.com/tutorials/double_checked_locking.shtml
+		why volatile should be the last in the initialization
+		reflection can destory the singleton
+		exception in private constructor as a defence against reflection
+		serializing singletong=s and readresolve()
+		enum singleton. can't use reflection on it. it is always eager though
+		
+3. Concurrent collections
+	Vector, Hashtable and why they are useless. Example of compOund operation on a vector
+	Synchronized collecttions - need guard the compund ops the same
+	Synchronized collecttions - concurrentmodificationexception, fail-fast strategy
+	Concmodifex in a single thread app ex
+	Hidden iterator example
+	Drawback of synchronizeed collections - only 1 thread can access state at a
+	ConcurrentHashMap -> replaces Map, CopyonWriteArrayList -> replaces List, ConcurrentMap - putifAbsent, Queu interface and blocking Queue
+	ConcurrentSkipListSet -> TreeSet, 
+	ConcurrentSkipListMap -> SortedMap 
+	ConcurrentHashMap - lock striping
+	putIfAbsent and other such
+	CopyOnWriteArayList
+	Quiz9, 10
+	BlockingQue, SynchronizedQue
+	problem with custom terminataor
+	PriorityQue
+	DelayQue
+	TransferQue
+	
+	
