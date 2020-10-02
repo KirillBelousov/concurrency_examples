@@ -19,11 +19,9 @@ public class WorkerTask extends RecursiveTask<Integer> {
             WorkerTask workerTask2 = new WorkerTask(workAmount / 2);
 
             workerTask1.fork();
-            workerTask2.fork();
 
             int total = 0;
-            total = total + workerTask2.compute();
-            total = total + workerTask2.join();
+            total = workerTask2.compute() + workerTask1.join();
 
             return total;
 
