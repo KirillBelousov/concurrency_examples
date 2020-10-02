@@ -7,7 +7,7 @@
  */
 public class Main {
 
-    private static volatile int count = 0;
+    private static  int count = 0;
 
     public static void main(String[] args) {
         new Thread1().start();
